@@ -7,13 +7,20 @@
  *
  */
 
-@import "../colors.rasi"
-
+/* @import "../colors.rasi" */
+* {
+  accent:           #607d8b;
+  background:       #2f343f;
+  background-light: #2f343f;
+  foreground:       #f3f4f5;
+  on:               #66bb6a;
+  off:              #ef5350;
+}
 /* ########### */
 
 * {
   /* General */
-  text-font:                            "Comfortaa 14";
+  text-font:                            "San Francisco Font 14";
   icon-font:                            "Hurmit Nerd Font Mono 48";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
 
@@ -30,8 +37,8 @@
 /* ########### */
 
 #window {
-  width: 56%;
-  height: 33%;
+  width: 765px;
+  height: 260px;
   anchor: center;
   location: center;
   x-offset: 0%;

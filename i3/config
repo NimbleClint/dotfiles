@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:NotoSans 12 
+font pango:San Franciso Font 12 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -55,7 +55,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec rofi -show
 
 # Start rofi drun menu
-bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh 
+bindsym $mod+space exec ~/.config/rofi/scripts/launcher.sh
 
 
 # change focus
@@ -98,9 +98,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -158,8 +155,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# bindsym $mod+Shift+e exec ~/.config/rofi/scripts/launch.sh powermenu 
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.config/rofi/scripts/menu_powermenu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -226,12 +223,13 @@ smart_gaps on
 
 # Startup App
 exec_always /home/andrew/.config/polybar/launch.sh
-#exec picom -f -i 1
-exec picom --config ~/.config/picom/picom.conf
+exec picom -f -i 1
+#exec_always picom --config /home/andrew/.config/picom/picom.conf
 #exec firefox
 exec spotify
 exec dunst
 exec_always --no-startup-id numlockx on
-exec_always feh --bg-fill "/home/andrew/.local/share/wallpapers/Abstract 4K.png"
+exec_always feh --bg-fill "/home/andrew/Pictures/Wallpapers/arc_paisley.png"
+#exec_always feh --bg-fill "/home/andrew/.local/share/wallpapers/Abstract 4K.png"
 
 for_window [class="Spotify"] move to workspace $ws10
