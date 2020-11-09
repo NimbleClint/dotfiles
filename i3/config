@@ -52,11 +52,11 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec rofi -show
+
+# Start rofi drun menu
+bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh 
+
 
 # change focus
 bindsym $mod+j focus left
@@ -151,7 +151,7 @@ bindsym $mod+o move workspace to output left
 
 # assign workspace classes
 assign [class="firefox"] number $ws1
-assign [class="kitty"] number $ws3
+assign [class="kitty"] number $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -159,6 +159,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec ~/.config/rofi/scripts/launch.sh powermenu 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,8 +226,9 @@ smart_gaps on
 
 # Startup App
 exec_always /home/andrew/.config/polybar/launch.sh
-exec picom -f -i 1
-exec firefox
+#exec picom -f -i 1
+exec picom --config ~/.config/picom/picom.conf
+#exec firefox
 exec spotify
 exec dunst
 exec_always --no-startup-id numlockx on
