@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font:                           "San Francisco Font 12";
+    font:                           "DejaVu Sans 12";
     show-icons:                     true;
 	icon-theme: 					"Breeze";
     display-drun: 					"";
@@ -21,21 +21,10 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-/* -- Breeze Light-- */
-/*
-* {
-    background:                     #EFF0F1FF;
-    background-alt:                 #EFF0F1FF;
-    foreground:                     #000000A6;
-    border:               			#3DAEE9FF;
-    selected:               		#93CEE999;
-    urgent:                         #DA4453FF;
-}
-*/
 
-/* -- Breeze Dark-- */
+/* -- Arc Dark-- */
 
-* {
+/* * {
     background:                     #2f343fff;
     background-alt:                 #2f343fff;
     foreground:                     #f3f4f5ff;
@@ -43,19 +32,16 @@ configuration {
     selected:               		#878e9dff;
     urgent:                         #DA4453FF;
 }
-
-
-/* -- Black-- */
-/*
-* {
-    background:                     #000000ff;
-    background-alt:                 #000000ff;
-    foreground:                     #f3f4f5ff;
-    border:               			#1d99f3ff;
-    selected:               		#3daee966;
-    urgent:                         #DA4453FF;
-}
 */
+
+@import "../themes/colors.rasi"
+
+* {
+  background-alt:		@background-light;
+  border:			@background;
+  selected:			@accent;
+  urgent:			@on;
+}
 
 window {
     transparency:                   "real";

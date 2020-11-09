@@ -223,13 +223,17 @@ smart_gaps on
 
 # Startup App
 exec_always /home/andrew/.config/polybar/launch.sh
-exec picom -f -i 1
+exec compton --config="/home/andrew/.config/compton/compton.conf"
+#exec compton --fading --inactive-opacity 0.8 --shadow --shadow-radius=12 --shadow-offset-x=-15 --shadow-offset-y=-15 --menu-opacity 1 --vsync=opengl --backend=glx --blur-background --blur-method=kawase --blur-strength 10
+
+
 #exec_always picom --config /home/andrew/.config/picom/picom.conf
 #exec firefox
 exec spotify
 exec dunst
 exec_always --no-startup-id numlockx on
-exec_always feh --bg-fill "/home/andrew/Pictures/Wallpapers/arc_paisley.png"
+exec_always feh --bg-fill "/home/andrew/Pictures/Wallpapers/wallhaven-39vey6.png"
+#exec_always feh --bg-fill "/home/andrew/Pictures/Wallpapers/arc_paisley.png"
 #exec_always feh --bg-fill "/home/andrew/.local/share/wallpapers/Abstract 4K.png"
 
 for_window [class="Spotify"] move to workspace $ws10
