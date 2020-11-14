@@ -48,12 +48,12 @@ window {
     background-color:               @background;
     text-color:                     @foreground;
     border-radius:                  0px;
-    height:                         400px;
-    width:                          600px;
-    location:                       center;
-    anchor:                         center;
-    offset:                         0;
-    y-offset:                       0;
+    height:                         310px;
+    width:                          310px;
+    location:                       northeast;
+    anchor:                         northeast;
+    x-offset:                         -20;
+    y-offset:                       56;
 }
 
 prompt {

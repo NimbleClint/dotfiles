@@ -19,4 +19,4 @@
  *
  */
 
-@import "colorschemes/blueSwirl.rasi"
+@import "colorschemes/arc-dark-custom.rasi"

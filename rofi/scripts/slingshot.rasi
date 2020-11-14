@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font:                           "Noto Sans 10";
+    font:                           "DejaVu Sans 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -34,7 +34,7 @@ configuration {
 */
 
 /* -- Dark -- */
-
+/*
 * {
     background:                     #2f343fFF;
     background-alt:                 #2f343fFF;
@@ -43,8 +43,12 @@ configuration {
     selected:               		#363A3FFF;
     urgent:                         #DA4453FF;
 }
-
-
+*/
+@import "../themes/colors.rasi"
+* {
+  selected:			    @background-light;
+  urgent:                           @secondary;
+}
 window {
     transparency:                   "real";
     background-color:               @background;
@@ -52,8 +56,8 @@ window {
     border:                  		0px;
     border-radius:                  5px;
     border-color:                  	@border;
-    height:                         55%;
-    width:                          42%;
+    height:                         410px;
+    width:                          600px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -65,7 +69,7 @@ prompt {
 	padding: 						0px 4px 0px 4px;
 	background-color: 				@background;
 	text-color: 					@foreground;
-	font:							"FantasqueSansMono Nerd Font 16";
+	font:							"Hack Nerd Font Mono 16";
 }
 
 

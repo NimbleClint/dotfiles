@@ -10,7 +10,8 @@
 @import "../colors.rasi"
 
 /* **** Manual Colors *** */
-/* * {
+/* 
+* {
   accent:           #607d8b;
   background:       #2f343f;
   background-light: #2f343f;
@@ -24,9 +25,9 @@
 
 * {
   /* General */
-  text-font:                            "San Francisco Font 14";
-  icon-font:                            "Hurmit Nerd Font Mono 48";
-  icon-font-small:                      "Hurmit Nerd Font Mono 24";
+  text-font:                            "DejaVu Sans 14";
+  icon-font:                            "Hack Nerd Font Mono 48";
+  icon-font-small:                      "Hack Nerd Font Mono 24";
 
   option-6-listview-spacing:            10px;
 
@@ -35,13 +36,13 @@
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px -2px;
   menu-element-border:                   10px;
-  menu-element-padding:                  25px 35px 20px -40px;
+  menu-element-padding:                  20px 40px 20px -50px;
 }
 
 /* ########### */
 
 #window {
-  width: 765px;
+  width: 800px;
   height: 260px;
   anchor: center;
   location: center;
