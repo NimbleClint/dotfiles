@@ -182,11 +182,20 @@ bindsym $mod+o move workspace to output left
 
 ### Color Variables ##
 
-set $background	         #353944
-set $background-alt	 #404552
-set $foreground          #f3f4f5
-set $foreground-alt      #858c97
-set $alert               #c9575d
+#Use Pywal Colors
+set_from_resource $background i3wm.background #FF0000
+set_from_resource $foreground i3wm.foreground #FF0000
+set_from_resource $alert i3wm.color1 #FF0000
+set $background-alt $background
+set $foreground-alt $foreground
+
+
+
+#set $background	         #353944
+#set $background-alt	 #404552
+#set $foreground          #f3f4f5
+#set $foreground-alt      #858c97
+#set $alert               #c9575d
 
 ### window colors ###
 
@@ -209,8 +218,9 @@ smart_gaps on
 
 ### Set Wallpaper ###
 
-exec_always --no-startup-id feh --bg-fill "/home/andrew/Pictures/Wallpapers/Top Wallpapers/epicycles.png"
+exec_always --no-startup-id "/home/andrew/.config/wpg/wp_init.sh"
 #exec_always feh --bg-fill "/home/andrew/Pictures/Wallpapers/wallhaven-39vey6.png" #Blue Swirl
+#exec_always --no-startup-id wal -R
 #exec_always --no-startup-id feh --bg-fill "/home/andrew/Pictures/Wallpapers/arc_paisley.png"
 #exec_always --no-startup-id feh --bg-fill "/home/andrew/Pictures/Wallpapers/wallhaven-r2zv87.jpg" #Blue Cells
 #exec_always --no-startup-id feh --bg-fill "/home/andrew/Pictures/Wallpapers/wallhave-p8djy3.jpg" #Blue and Purple Fluid
@@ -229,7 +239,7 @@ exec --no-startup-id picom --config="/home/andrew/.config/picom/picom.conf"
 exec --no-startup-id /usr/lib/kdeconnectd
 #exec firefox
 #exec --no-startup-id spotify
-#exec --no-startup-id dunst
+exec_always --no-startup-id dunst
 exec_always --no-startup-id numlockx on
 
 ### Application Bindings ###

@@ -34,7 +34,7 @@ configuration {
 }
 */
 
-@import "../themes/colors.rasi"
+@import "../colors.rasi"
 
 * {
   background-alt:		@background-light;
