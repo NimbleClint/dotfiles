@@ -11,14 +11,14 @@ THEME=/home/andrew/.config/rofi/themes/kdeconnect
 FONTINDEX=4 #Match this to desired font index in polybar config. For entry "font-n," index is n+1
 
 # Color Settings of Icon shown in Polybar
-COLOR_DISCONNECTED='#eac92c'       # Device Disconnected
+COLOR_DISCONNECTED='#272127'       # Device Disconnected
 COLOR_NEWDEVICE='#ffffff'          # New Device
 COLOR_BATTERY_90='#ffffff'         # Battery >= 90
 COLOR_BATTERY_80='#ffffff'         # Battery >= 80
 COLOR_BATTERY_70='#ffffff'         # Battery >= 70
 COLOR_BATTERY_60='#ffffff'         # Battery >= 60
 COLOR_BATTERY_50='#ffffff'         # Battery >= 50
-COLOR_BATTERY_LOW='#ffffff'        # Battery <  50
+COLOR_BATTERY_LOW='#b91c1c'        # Battery <  50
 
 # Icons shown in Polybar
 ICON_SMARTPHONE=''
