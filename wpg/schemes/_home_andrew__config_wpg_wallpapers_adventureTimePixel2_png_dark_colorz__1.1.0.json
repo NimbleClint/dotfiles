@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/andrew/.config/wpg/wallpapers/adventureTimePixel2.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#272127",
+        "foreground": "#ffffff",
+        "cursor": "#ffffff"
+    },
+    "colors": {
+        "color0": "#272127",
+        "color1": "#6c73d8",
+        "color2": "#eac92c",
+        "color3": "#c05876",
+        "color4": "#7d18d4",
+        "color5": "#58a47e",
+        "color6": "#b91c1c",
+        "color7": "#ffffff",
+        "color8": "#705a65",
+        "color9": "#6c73d8",
+        "color10": "#eac92c",
+        "color11": "#c05876",
+        "color12": "#7d18d4",
+        "color13": "#58a47e",
+        "color14": "#b91c1c",
+        "color15": "#ffffff"
+    }
+}

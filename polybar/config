@@ -20,23 +20,38 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;        Pywal Colors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+
 ; Standard Background
-background = ${xrdb:background:#0FF}
-; Alternate Background, used for Focused tab 
-; This aligns with the color in the Rofi config, do
-; not change this one
-background-alt = ${xrdb:color2:#0FF}
+background = ${self.color0}
+; Alternate/Light Background
+; Used for unfocused visible tabs
+background-alt = ${self.color8}
 
 ; Primary Foreground, White
-foreground = ${xrdb:foreground:#0FF}
-; Alternate Foreground, Accent Color
-foreground-alt = ${xrdb:color10:#0FF}
+foreground = ${self.color15}
+; Alternate Foreground, lighter version of accent
+foreground-alt = ${xrdb:color9:#0FF}
 
-; Primary accent color, Unfocused Visible tabs
-primary = ${xrdb:color8:#0FF}
-
-; Secondary accent color, used for alerts, muted audio
-secondary = ${xrdb:color5:#0FF}
+; Accent color
+accent = ${self.color1}
+; Alert
+alert = ${self.color6}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;       Arc Colors
@@ -55,7 +70,7 @@ secondary = ${xrdb:color5:#0FF}
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%-48
-height = 28 
+height = 36 
 offset-x = 24
 offset-y = 24
 radius = 0.0
@@ -73,20 +88,22 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 3 
+padding-right = 0 
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0 
+module-margin-right = 0
 
-font-0 = "DejaVu Sans:style=Book:size=11;3"
+font-0 = "DejaVu Sans:style=Book:size=11;2"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = DejaVuSansMono Nerd Font Mono:style=Oblique:size=20:antialias=true;5
+font-2 = DejaVuSansMono Nerd Font Mono:style=Oblique:size=20:antialias=true;4.5
 font-3 = DejaVuSansMono Nerd Font Mono:style=Book:size=16:antialias=true;3
 font-4 = "Product Sans Light:style=Regular:size=10"
+font-5 = "Weather Icons:size=20;1"
+font-6 = "Font Awesome 5 Brans Regular:style=Regular:size=20;3"
 
-modules-left = i3 
+modules-left = i3 xwindow
 modules-center = 
-modules-right = network audio date tray
+modules-right = audio popup-calendar kdeconnect dunst
  
 ;tray-position = right
 tray-padding = 0
@@ -101,7 +118,8 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 75
+label-maxlen = 25
+format-padding = 4
 
 [module/i3]
 type = internal/i3
@@ -112,9 +130,9 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = ${colors.foreground-alt} 
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.accent}
 
 
 ;;;;;;;;;;;;;     Bar Colors     ;;;;;;;;;;;;;;
@@ -122,25 +140,25 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.accent}
 label-focused-underline= ${colors.foreground}
 label-focused-padding = 2 
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 2
-label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-foreground = ${colors.foreground}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${colors.primary}
-label-visible-underline = ${colors.foreground-alt}
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.foreground}
 label-visible-padding = ${self.label-focused-padding}
 label-visible-foreground = ${self.label-visible-underline}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.secondary}
+label-urgent-background = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
 
 ws-icon-0 = "1;1   "
@@ -150,9 +168,9 @@ ws-icon-3 = "4;4  "
 ws-icon-4 = "5;5  "
 ws-icon-5 = "6;6 ﱤ "
 ws-icon-6 = "7;7 ﰊ "
-ws-icon-7 = "8;8 ﰃ "
+ws-icon-7 = "8;8   "
 ws-icon-8 = "9;9  "
-ws-icon-9 = "10;10  "
+ws-icon-9 = "10;10 ﱘ "
 
 [module/date]
 type = internal/date
@@ -164,7 +182,16 @@ time = "%I:%M %p"
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label =   %date% %time%
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
+padding = 3
+format-background = ${colors.color4}
+format-padding = 4 
 
 [module/audio]
 type = internal/pulseaudio
@@ -172,14 +199,21 @@ type = internal/pulseaudio
 format-volume = <ramp-volume>
 label-volume-foreground = ${colors.foreground}
 ramp-volume-foreground = ${colors.foreground}
-label-volume = 
+label-volume = %percentage%% 
 
-ramp-volume-0 = 
-ramp-volume-1 = 墳
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 墳
+ramp-volume-3 = 
 
 label-muted = ﱝ
-label-muted-foreground = ${colors.secondary}
+label-muted-foreground = ${colors.alert}
+
+format-volume-background = ${colors.color3}
+format-volume-padding = 4
+
+format-muted-padding = 4
+
 
 [module/powermenu]
 type = custom/text
@@ -196,19 +230,42 @@ format-foreground = ${colors.foreground}
 hook-0 = echo "%{A1:notify-send "DUNST_COMMAND_PAUSE" && polybar-msg hook dunst 2:}%{A}" &
 hook-1 = echo "%{A1:notify-send "DUNST_COMMAND_RESUME" && polybar-msg hook dunst 1:}%{A}" &
 
+format-background = ${colors.color5}
+format-padding = 2
+
 [module/kdeconnect]
 type = custom/script
-exec = "/home/andrew/.config/polybar/scripts/polybar-kdeconnect.sh -d"
+exec = "$HOME/.config/polybar/scripts/polybar-kdeconnect.sh -d"
 tail = true
+
+format-background = ${colors.color5}
+format-padding = 2
+
 
 [module/network]
 type = internal/network
 interface = eno1
 interval = 3.0
 
-label-connected = %{T4}%{T-}%downspeed:9%
+label-connected = %{T4}%{T-}%downspeed:9%
 
 label-disconnected = %{T4}
+
+[module/vpn]
+type = custom/script
+exec = "$HOME/.config/polybar/scripts/vpn_module.sh"
+click-left = "$HOME/.config/polybar/scripts/vpn_module.sh --location-menu &"
+click-right = "$HOME/.config/polybar/scripts/vpn_module.sh --toggle-connection &"
+click-middle = "$HOME/.config/polybar/scripts/vpn_module.sh --ip_address &"
+interval = 5
+format = 嬨  <label>
+format-background = ${colors.background}
+
+[module/owm]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 3
 
 [settings]
 screenchange-reload = true

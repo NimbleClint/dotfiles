@@ -1,0 +1,1 @@
+/home/andrew/.config/polybar/scripts/vpn_module.sh
