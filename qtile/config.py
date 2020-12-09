@@ -1,0 +1,393 @@
+# Copyright (c) 2010 Aldo Cortesi
+# Copyright (c) 2010, 2014 dequis
+# Copyright (c) 2012 Randall Ma
+# Copyright (c) 2012-2014 Tycho Andersen
+# Copyright (c) 2012 Craig Barnes
+# Copyright (c) 2013 horsik
+# Copyright (c) 2013 Tao Sauvage
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+import os
+import subprocess
+import re
+import socket
+from typing import List  # noqa: F401
+
+from libqtile import bar, layout, widget, hook
+from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.lazy import lazy
+
+# Load script to read colors from pywal
+import pywal_colors
+color = pywal_colors.colors
+
+home = os.path.expanduser("~")
+
+mod = "mod4"
+terminal = "kitty"
+
+def window_to_prev_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
+
+def window_to_next_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
+
+def window_to_previous_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        i = i - 1        
+    else:
+        i = len(qtile.screens) - 1    
+    group = qtile.screens[i].group.name
+    qtile.current_window.togroup(group)
+    qtile.focus_screen(i)
+
+def window_to_next_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        i = i + 1
+    else:
+        i = 0
+    group = qtile.screens[i].group.name
+    qtile.current_window.togroup(group)
+    qtile.focus_screen(i)
+
+keys = [
+    # Switch between windows in current stack pane
+    Key([mod], "k", lazy.layout.down()),
+    Key([mod], "j", lazy.layout.up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "l", lazy.layout.right()),
+
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "Right", lazy.layout.right()),
+
+    # Move windows up or down in current stack
+    Key([mod, "control"], "k", 
+        lazy.layout.shuffle_down(),
+        lazy.layout.rotate()),
+    Key([mod, "control"], "j", 
+        lazy.layout.shuffle_up(),
+        lazy.layout.rotate()),
+
+    # Resize Windows
+    Key([mod, "control"], "Down", lazy.layout.grow_down()),
+    Key([mod, "control"], "Up", lazy.layout.grow_up()),
+    Key([mod, "control"], "Left", lazy.layout.grow_left()),
+    Key([mod, "control"], "Right", lazy.layout.grow_right()),
+
+    # Move focus to next window
+    Key([mod], "period", lazy.screen.prev_group()),
+    Key([mod], "comma", lazy.screen.next_group()),
+
+    # Move windows to different screens
+    Key([mod, "control"], "period", lazy.function(window_to_previous_screen)),
+    Key([mod, "control"], "comma", lazy.function(window_to_next_screen)),
+
+    # Switch window focus to other pane(s) of stack
+    Key([mod], "n", lazy.layout.next()),
+
+    # Swap panes of split stack
+    Key([mod, "shift"], "space", lazy.layout.rotate()),
+
+
+    # Toggle between different layouts as defined below
+    Key([mod], "Tab", lazy.next_layout()),
+
+    # Restart Qtile
+    Key([mod, "shift"], "r", lazy.restart()),
+
+    # Shutdown Qtile
+    Key([mod, "control"], "q", lazy.shutdown()),
+
+    # Volume Keys
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+
+    # Kill Window
+    Key([mod,], "q", lazy.window.kill()),
+
+    # Launch Terminal
+    Key([mod], "Return", lazy.spawn(terminal)),
+    # Launch Rofi App Launcher
+    Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
+]
+
+
+# Define Groups
+group_names=[
+        (" I ", {}), 
+        (" II ", {}),
+        (" III ", { }),
+        (" IV ", { }),
+        (" V ", { }),
+        (" VI ", { }),
+        (" VII ", { }),
+        (" VIII ", {}),
+        (" IX ", {}),
+    ]
+
+#groups = [Group(i) for i in "123456789"]
+groups = [Group(name, **kwargs) for name, kwargs in group_names]
+
+#for i in groups:
+#    keys.extend([
+#        # mod1 + letter of group = switch to group
+#        Key([mod], i.name, lazy.group[i.name].toscreen(), lazy.to_screen() ),
+#
+#        # mod1 + shift + letter of group = switch to & move focused window to group
+#        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+#            desc="Switch to & move focused window to group {}".format(i.name)),
+#    ])
+
+for i, (name, kwargs) in enumerate(group_names, 1):
+        keys.append(Key([mod], str(i), lazy.group[name].toscreen())),
+        keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))),
+
+
+layout_theme = { 
+        "border_width": 2,
+        "border_focus": color[1],
+        "border_normal": color[0],
+        }
+
+layouts = [
+    layout.MonadTall(
+        **layout_theme,
+        margin = 5,
+        name = "Tall",
+        ),
+    layout.Max(
+        **layout_theme,
+        name = "Max",
+        ),
+    #layout.Stack(
+    #    **layout_theme,
+    #    num_stacks=2),
+    # Try more layouts by unleashing below layouts.
+    # layout.Bsp(),
+    # layout.Columns(),
+    # layout.Matrix(),
+    layout.MonadWide(
+        **layout_theme, 
+        margin = 5,
+        name = "Wide"),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
+]
+
+widget_defaults = dict(
+    font='Ubuntu Mono',
+    fontsize=14,
+    background = color[0]
+)
+extension_defaults = widget_defaults.copy()
+
+screens = [
+    Screen(
+        bottom=bar.Bar(
+            [
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.GroupBox(
+                   rounded = False,
+                   linewidth = 0,
+                   active = color[15],
+                   inactive = color[8],
+                   highlight_method = 'line',
+                   highlight_color = color[1],
+                   this_current_screen_border = color[1],
+                   this_screen_border = color[1],
+                   other_current_screen_border = color[8],
+                   other_screen_border = color[8],
+                   urgent_border = color[6],
+                   ),
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.WindowName(),
+               widget.Spacer(),
+               widget.Clock(
+                   format='%Y-%m-%d %a %I:%M %p',
+                   background = color[3],
+                   padding = 10,
+                   ),
+               widget.CurrentLayout(
+                   background = color[1],
+                   padding = 10
+                   ),
+               widget.Systray(
+                   background = color[3],
+                   padding = 10,
+                   ),
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 10,
+                   background = color[3],
+                   ),
+
+            ],
+            32,
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.GroupBox(
+                   rounded = False,
+                   linewidth = 0,
+                   active = color[15],
+                   inactive = color[8],
+                   highlight_method = 'line',
+                   highlight_color = color[1],
+                   this_current_screen_border = color[1],
+                   this_screen_border = color[1],
+                   other_current_screen_border = color[8],
+                   other_screen_border = color[8],
+                   urgent_border = color[6],
+                   ),
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.WindowName(),
+               widget.Spacer(),
+               widget.Clock(
+                   format='%I:%M %p',
+                   background = color[3],
+                   padding = 10
+                   ),
+               widget.CurrentLayout(
+                   background = color[4],
+                   padding = 10
+                   ),
+
+            ],
+            32,
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.GroupBox(
+                   rounded = False,
+                   linewidth = 0,
+                   active = color[15],
+                   inactive = color[8],
+                   highlight_method = 'line',
+                   highlight_color = color[1],
+                   this_current_screen_border = color[1],
+                   this_screen_border = color[1],
+                   other_current_screen_border = color[8],
+                   other_screen_border = color[8],
+                   urgent_border = color[6],
+                   ),
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.WindowName(),
+               widget.Spacer(),
+               widget.Clock(
+                   format='%I:%M %p',
+                   background = color[3],
+                   padding = 10
+                   ),
+               widget.CurrentLayout(
+                   background = color[4],
+                   padding = 10
+                   ),
+
+            ],
+            32,
+        ),
+    ),
+]
+
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
+]
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+main = None  # WARNING: this is deprecated and will be removed soon
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = False
+floating_layout = layout.Floating(float_rules=[
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    {'wmclass': 'confirm'},
+    {'wmclass': 'dialog'},
+    {'wmclass': 'download'},
+    {'wmclass': 'error'},
+    {'wmclass': 'file_progress'},
+    {'wmclass': 'notification'},
+    {'wmclass': 'splash'},
+    {'wmclass': 'toolbar'},
+    {'wmclass': 'confirmreset'},  # gitk
+    {'wmclass': 'makebranch'},  # gitk
+    {'wmclass': 'maketag'},  # gitk
+    {'wname': 'branchdialog'},  # gitk
+    {'wname': 'pinentry'},  # GPG key password entry
+    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+])
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+
+# Autostart
+@hook.subscribe.startup
+def autostart():
+    subprocess.call([home + '/.config/qtile/autostart.sh']),
+
+# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+# string besides java UI toolkits; you can see several discussions on the
+# mailing lists, GitHub issues, and other WM documentation that suggest setting
+# this string if your java app doesn't work correctly. We may as well just lie
+# and say that we're a working one by default.
+#
+# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+# java that happens to be on java's whitelist.
+wmname = "LG3D"
