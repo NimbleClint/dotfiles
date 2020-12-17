@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/andrew/.config/wpg/wallpapers/CRfhBuk.jpeg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#050c24",
+        "foreground": "#c0c2c8",
+        "cursor": "#c0c2c8"
+    },
+    "colors": {
+        "color0": "#050c24",
+        "color1": "#1a40b6",
+        "color2": "#4249bb",
+        "color3": "#5c5aac",
+        "color4": "#7a6fab",
+        "color5": "#9e89a6",
+        "color6": "#ae7579",
+        "color7": "#c0c2c8",
+        "color8": "#43485a",
+        "color9": "#1a40b6",
+        "color10": "#4249bb",
+        "color11": "#5c5aac",
+        "color12": "#7a6fab",
+        "color13": "#9e89a6",
+        "color14": "#ae7579",
+        "color15": "#c0c2c8"
+    }
+}

@@ -94,14 +94,12 @@ keys = [
         lazy.layout.rotate()),
 
     # Resize Windows
-    Key([mod, "control"], "Down", lazy.layout.grow_down()),
-    Key([mod, "control"], "Up", lazy.layout.grow_up()),
-    Key([mod, "control"], "Left", lazy.layout.grow_left()),
-    Key([mod, "control"], "Right", lazy.layout.grow_right()),
+    Key([mod, "control"], "i", lazy.layout.shrink()),
+    Key([mod, "control"], "o", lazy.layout.grow()),
 
     # Move focus to next window
-    Key([mod], "period", lazy.screen.prev_group()),
-    Key([mod], "comma", lazy.screen.next_group()),
+    Key([mod], "period", lazy.screen.next_group()),
+    Key([mod], "comma", lazy.screen.prev_group()),
 
     # Move windows to different screens
     Key([mod, "control"], "period", lazy.function(window_to_previous_screen)),
@@ -233,7 +231,7 @@ screens = [
                    ),
                widget.Sep(
                    linewidth = 0,
-                   padding = 5,
+                   padding = 10,
                    ),
                widget.WindowName(),
                widget.Spacer(),
@@ -246,14 +244,44 @@ screens = [
                    background = color[1],
                    padding = 10
                    ),
-               widget.Systray(
-                   background = color[3],
-                   padding = 10,
+            ],
+            32,
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+               widget.Sep(
+                   linewidth = 0,
+                   padding = 5,
+                   ),
+               widget.GroupBox(
+                   rounded = False,
+                   linewidth = 0,
+                   active = color[15],
+                   inactive = color[8],
+                   highlight_method = 'line',
+                   highlight_color = color[1],
+                   this_current_screen_border = color[1],
+                   this_screen_border = color[1],
+                   other_current_screen_border = color[8],
+                   other_screen_border = color[8],
+                   urgent_border = color[6],
                    ),
                widget.Sep(
                    linewidth = 0,
-                   padding = 10,
+                   padding = 5,
+                   ),
+               widget.WindowName(),
+               widget.Spacer(),
+               widget.Clock(
+                   format='%I:%M %p',
                    background = color[3],
+                   padding = 10
+                   ),
+               widget.CurrentLayout(
+                   background = color[1],
+                   padding = 10
                    ),
 
             ],
@@ -292,47 +320,7 @@ screens = [
                    padding = 10
                    ),
                widget.CurrentLayout(
-                   background = color[4],
-                   padding = 10
-                   ),
-
-            ],
-            32,
-        ),
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-               widget.Sep(
-                   linewidth = 0,
-                   padding = 5,
-                   ),
-               widget.GroupBox(
-                   rounded = False,
-                   linewidth = 0,
-                   active = color[15],
-                   inactive = color[8],
-                   highlight_method = 'line',
-                   highlight_color = color[1],
-                   this_current_screen_border = color[1],
-                   this_screen_border = color[1],
-                   other_current_screen_border = color[8],
-                   other_screen_border = color[8],
-                   urgent_border = color[6],
-                   ),
-               widget.Sep(
-                   linewidth = 0,
-                   padding = 5,
-                   ),
-               widget.WindowName(),
-               widget.Spacer(),
-               widget.Clock(
-                   format='%I:%M %p',
-                   background = color[3],
-                   padding = 10
-                   ),
-               widget.CurrentLayout(
-                   background = color[4],
+                   background = color[1],
                    padding = 10
                    ),
 
