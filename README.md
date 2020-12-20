@@ -12,6 +12,30 @@ Power and Launcher menus are Rofi Applets (link below). Included polybar modules
 
 ### Dependencies
 
+Desktop Environment
+----
+i3-Gaps
+Polybar
+Dunst
+Rofi
+Ibhagwom's Picom
+WPGTK
+Feh
+
+Command Line Interface
+----
+Fish
+Kitty
+
+Polybar
+----
+KDEconnect (modified and included)
+Dunst (Included)
+
+Rofi Menus
+----
+Rofi Applets (Some included)
+
 ## Qtile
 
 Currently WIP
