@@ -31,6 +31,7 @@ Polybar |
 ---- |
 [Polybar-KDEconnect](https://github.com/haideralipunjabi/polybar-kdeconnect) (modified and included) |
 [Dunst-Polybar](https://github.com/JeanEdouardKevin/dunst-polybar) (Included) |
+[Popup-Calendar](https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/popup-calendar) (Included) |
 
 Rofi Menus |
 ---- |
