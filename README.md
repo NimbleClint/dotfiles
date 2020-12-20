@@ -36,6 +36,10 @@ Rofi Menus |
 ---- |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 
+### Wallpaper
+Cudos to artist: [Pixel art by AbyssWolf](https://www.deviantart.com/abysswolf/art/Finn-and-Jake-382050723)  
+I don't know who made the wallpaper [but you can find it here.](https://cdn.wallpapersafari.com/88/29/AJvlRT.jpg)
+
 ## Qtile
 
 Currently WIP
