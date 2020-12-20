@@ -18,7 +18,7 @@ i3-Gaps |
 Polybar |
 Dunst |
 Rofi |
-Ibhagwom's Picom |
+[Ibhagwom's Picom](https://github.com/ibhagwan/picom) |
 WPGTK |
 Feh |
 
@@ -29,12 +29,12 @@ Kitty |
 
 Polybar |
 ---- |
-KDEconnect (modified and included) |
-Dunst (Included) |
+[Polybar-KDEconnect](https://github.com/haideralipunjabi/polybar-kdeconnect) (modified and included) |
+[Dunst-Polybar](https://github.com/JeanEdouardKevin/dunst-polybar) (Included) |
 
 Rofi Menus |
 ---- |
-Rofi Applets (Some included) |
+[Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 
 ## Qtile
 
