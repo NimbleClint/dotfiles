@@ -26,11 +26,11 @@ shadow-offset-y = -8;
 ################################
 #           Opacity
 ################################
-menu-opacity = 0.8;
-inactive-opacity = 0.8;
-active-opacity = 1;
-frame-opacity = 0.8;
-inactive-opacity-override = false;
+menu-opacity = 1;
+# inactive-opacity = 1;
+# active-opacity = 0.8;
+# frame-opacity = 1;
+# inactive-opacity-override = false;
 alpha-step = 0.06;
 # inactive-dim = 0.2;
 # inactive-dim-fixed = true;
@@ -39,6 +39,7 @@ alpha-step = 0.06;
 ################################
 #            Blur
 ################################
+blur-background = false; 
 blur-background-frame = true;
 blur-method = "dual_kawase";
 blur-strength = 10;
