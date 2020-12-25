@@ -1,5 +1,4 @@
 # NimbleClint's Dotfiles
-
 ## i3-Gaps and Polybar
 My i3 config uses i3-Gaps, Polybar, Dunst, Rofi, and Picom. Colors are controlled using WPGTK. Because I'm making liberal use of WPGTK's templates, some of the config files have warning to avoid editing them directly and to edit the WPGTK template instead. If you aren't using WPGTK, you can safely ignore those warnings.
 
