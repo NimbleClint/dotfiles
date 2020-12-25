@@ -42,5 +42,28 @@ Cudos to artist: [Pixel art by AbyssWolf](https://www.deviantart.com/abysswolf/a
 I don't know who made the wallpaper [but you can find it here.](https://cdn.wallpapersafari.com/88/29/AJvlRT.jpg)
 
 ## Qtile
+Currently my Qtile config works pretty similarly to i3; it uses the same rofi menus but uses the qtile bar instead of polybar. It also uses WPGTK for color management.
 
-Currently WIP
+### Screenshots
+![NimbleClint's qtile Desktop](qtile/qtileScreenshots/hollyJollySecrets_desktop.png)
+![NimbleClint's qtile Terminals](qtile/qtileScreenshots/hollyJollySecrets_terminals.png)
+
+### Dependencies
+
+Desktop Environment |
+---- |
+Qtile |
+Dunst |
+Rofi |
+[Ibhagwom's Picom](https://github.com/ibhagwan/picom) |
+WPGTK |
+Feh |
+
+Command Line Interface |
+---- |
+Fish |
+Kitty |
+
+Rofi Menus |
+---- |
+[Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
