@@ -34,6 +34,8 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 
+from plasma import Plasma
+
 # Load script to read colors from pywal
 import pywal_colors
 color = pywal_colors.colors
@@ -97,9 +99,9 @@ keys = [
     Key([mod, "control"], "i", lazy.layout.shrink()),
     Key([mod, "control"], "o", lazy.layout.grow()),
 
-    # Move focus to next window
-    Key([mod], "period", lazy.screen.next_group()),
-    Key([mod], "comma", lazy.screen.prev_group()),
+    # Move focus to different monitor
+    Key([mod], "period", lazy.prev_screen()),
+    Key([mod], "comma", lazy.next_screen()),
 
     # Move windows to different screens
     Key([mod, "control"], "period", lazy.function(window_to_previous_screen)),
@@ -111,7 +113,6 @@ keys = [
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
 
-
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
 
@@ -119,12 +120,25 @@ keys = [
     Key([mod, "shift"], "r", lazy.restart()),
 
     # Shutdown Qtile
-    Key([mod, "control"], "q", lazy.shutdown()),
+    # Key([mod, "control"], "q", lazy.shutdown()),
+
+    # Power Menu
+    Key([mod, "shift"], "q", lazy.spawn([home + '/.config/rofi/applets/menu/powermenu.sh'])),
 
     # Volume Keys
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    
+    # Media Keys
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioPause", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPause", lazy.spawn("playerctl previous")),
+
+    # Print Screen
+    Key([], "Print", lazy.spawn("gnome-screenshot -i")),
+    Key([mod,], "Print", lazy.spawn("gnome-screenshot -a")),
 
     # Kill Window
     Key([mod,], "q", lazy.window.kill()),
@@ -168,7 +182,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 
 layout_theme = { 
-        "border_width": 2,
+        "border_width": 1,
         "border_focus": color[1],
         "border_normal": color[0],
         }
@@ -176,29 +190,46 @@ layout_theme = {
 layouts = [
     layout.MonadTall(
         **layout_theme,
-        margin = 5,
+        # margin = 5,
         name = "Tall",
         ),
+    layout.MonadWide(
+        **layout_theme, 
+        # margin = 5,
+        name = "Wide"),
     layout.Max(
         **layout_theme,
         name = "Max",
         ),
-    #layout.Stack(
-    #    **layout_theme,
-    #    num_stacks=2),
+    layout.Stack(
+        **layout_theme,
+        num_stacks=2),
     # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
-    # layout.Columns(),
-    # layout.Matrix(),
-    layout.MonadWide(
-        **layout_theme, 
-        margin = 5,
-        name = "Wide"),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    # layout.Bsp(
+    #     name = "BSP",
+    #     ),
+    # layout.Columns(
+    #     name = "Columns",
+    #     ),
+    # layout.Matrix(
+    #     name = "Matrix",
+    #     ),
+    #     layout.RatioTile(),
+    # layout.Tile(
+    #     name = "Tile",
+    #     ),
+    # layout.TreeTab(
+    #     name = "Tree",
+    #     ),
+    # layout.VerticalTile(
+    #     name = "VTile",
+    #     ),
+    # layout.Zoomy(
+    #     name = "Zoomy",
+    #     ),
+    # Plasma(
+    #     name = "Plasma",
+    #     ),
 ]
 
 widget_defaults = dict(
@@ -361,6 +392,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'branchdialog'},  # gitk
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    {'wmclass': 'Gnome-screenshot'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
