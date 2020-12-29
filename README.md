@@ -66,3 +66,4 @@ Kitty |
 Rofi Menus |
 ---- |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
+[DT's Rasi files](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/rofi/themes) (Included/modified) |
