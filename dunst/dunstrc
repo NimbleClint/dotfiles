@@ -1,7 +1,7 @@
 [colors]
-	background = "#020406"
-	foreground = "#c2c7d2"
-	accent = "#a51b37"
+	background = "#000008"
+	foreground = "#ffffff"
+	accent = "#2296d7"
 
 [global]
     ### Display ###
@@ -19,7 +19,7 @@
     horizontal_padding = 18
     frame_width = 3 
 
-    frame_color = "#a51b37"
+    frame_color = "#2296d7"
     separator_color = auto
     sort = yes
     idle_threshold = 120
@@ -68,7 +68,7 @@
     startup_notification = false
     force_xinerama = false
 [frame]
-    color = "#a51b37"
+    color = "#2296d7"
 
 [experimental]
     per_monitor_dpi = false

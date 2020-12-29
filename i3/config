@@ -182,13 +182,13 @@ bindsym $mod+o move workspace to output left
 ### Color Variables ##
 
 #Use Pywal Colors
-set $background #020406
-set $foreground #c2c7d2
-set $alert #b593e3
-set $accent #a51b37
-set $accent-alt #a51b37
-set $background-alt #475369
-set $foreground-alt #c2c7d2
+set $background #000008
+set $foreground #ffffff
+set $alert #60d338
+set $accent #2296d7
+set $accent-alt #2296d7
+set $background-alt #454567
+set $foreground-alt #ffffff
 
 
 

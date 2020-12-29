@@ -1,0 +1,58 @@
+/**
+ * ROFI Color theme
+ * NAME: dt-dmenu.rasi
+ * DESCRIPTION: This is a horizontal prompt similar to dmenu.
+ * AUTHOR: Derek Taylor (DT)
+ */
+
+* {{
+    background-color:           {color0};
+    border-color:               {color8};
+    text-color:                 {color15};
+    height:                     32px;
+    font:                       "Ubuntu Mono 11";
+    prompt-font:                "Ubuntu Mono 11";
+    prompt-background:          {color1};
+    prompt-foreground:          {color0};
+    prompt-padding:             2px;
+    selected-normal-background: {color3};
+    selected-normal-foreground: {color15};
+}}
+#window {{
+    anchor: south;
+    location: south;
+    width: 100%;
+    padding: 0px;
+    children: [ horibox ];
+}}
+#horibox {{
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+}}
+#prompt {{
+    padding:          @prompt-padding;
+    background-color: @prompt-background;
+    text-color:       @prompt-foreground;
+    font:             @prompt-font;
+    padding: 7px;
+}}
+#listview {{
+    layout: horizontal;
+    lines: 100;
+}}
+#entry {{
+    padding: 7px;
+    expand: false;
+    width: 10em;
+}}
+#element {{
+    padding: 7px 14px 7px 0px;
+}}
+#element selected {{
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}}
+
+/*
+vim:ft=css
+*/

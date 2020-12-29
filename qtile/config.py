@@ -145,8 +145,11 @@ keys = [
 
     # Launch Terminal
     Key([mod], "Return", lazy.spawn(terminal)),
+
     # Launch Rofi App Launcher
-    Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
+    # Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
+    Key([mod], "space", lazy.spawn([home + '/.config/qtile/rofi-dmenu.sh'])),
+    Key([mod, "control"], "space", lazy.spawn([home + '/.config/qtile/rofi-center.sh'])),
 ]
 
 

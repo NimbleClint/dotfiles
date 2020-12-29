@@ -49,9 +49,9 @@ CONNECTING=...
 # orange=#FF6600
 # yellow=#FFFF00
 # purple=#CC33FF
-COLOR_CONNECTED=#c2c7d2
-COLOR_CONNECTING=#c2c7d2
-COLOR_DISCONNECTED=#b593e3
+COLOR_CONNECTED=#ffffff
+COLOR_CONNECTING=#ffffff
+COLOR_DISCONNECTED=#60d338
 
 ## [Set 8 favorite VPN locations]
 # These are passed to your VPN as `$VPNCOMMAND_RELAY_SET_LOCATION <input>`.
