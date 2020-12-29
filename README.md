@@ -44,8 +44,9 @@ I don't know who made the wallpaper [but you can find it here.](https://cdn.wall
 Currently my Qtile config works pretty similarly to i3; it uses the same rofi menus but uses the qtile bar instead of polybar. It also uses WPGTK for color management.
 
 ### Screenshots
-![NimbleClint's qtile Desktop](qtile/qtileScreenshots/hollyJollySecrets_desktop.png)
-![NimbleClint's qtile Terminals](qtile/qtileScreenshots/hollyJollySecrets_terminals.png)
+![NimbleClint's qtile Desktop](qtile/qtileScreenshots/fluidSim_desktop.png)
+![NimbleClint's qtile Terminals](qtile/qtileScreenshots/fluidSim_terminals.png)
+![NimbleClint's qtile Menus](qtile/qtileScreenshots/fluidSim_menus.png)
 
 ### Dependencies
 
