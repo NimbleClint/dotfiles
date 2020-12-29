@@ -1,7 +1,7 @@
 * {{
   accent:           {color1};
-  background:       {color0};
-  background-light: {color8};
+  background:       {color0}00;
+  background-light: {color0}00;
   foreground:       {color15};
   on:               {color1};
   off:              {color2};

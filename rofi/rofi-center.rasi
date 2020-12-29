@@ -6,15 +6,15 @@
  */
 
 * {
-    background-color:            #000008;
+    background-color:            #00000800;
     border-color:                #2296d7;
     text-color:                  #ffffff;
-    font:                        "Ubuntu Mono 11";
-    prompt-font:                 "Ubuntu Mono 11";
-    prompt-background:           #000008;
+    font:                        "DejaVu Sans 11";
+    prompt-font:                 "DejaVu Sans 11";
+    prompt-background:           #00000800;
     prompt-foreground:           #ffffff;
     prompt-padding:              3px;
-    alternate-normal-background: #000008;
+    alternate-normal-background: #00000800;
     alternate-normal-foreground: @text-color;
     selected-normal-background:  #2296d7;
     selected-normal-foreground:  #ffffff;

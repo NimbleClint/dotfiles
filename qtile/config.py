@@ -185,7 +185,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 
 layout_theme = { 
-        "border_width": 1,
+        "border_width": 2,
         "border_focus": color[1],
         "border_normal": color[0],
         }
@@ -236,9 +236,10 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Ubuntu Mono',
+    font='DejaVu Sans',
     fontsize=14,
-    background = color[0]
+    background = color[0],
+    opacity = 1,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -262,6 +263,7 @@ screens = [
                    other_current_screen_border = color[8],
                    other_screen_border = color[8],
                    urgent_border = color[6],
+                   
                    ),
                widget.Sep(
                    linewidth = 0,
@@ -273,10 +275,12 @@ screens = [
                    format='%Y-%m-%d %a %I:%M %p',
                    background = color[3],
                    padding = 10,
+                   foreground = color[0],
                    ),
                widget.CurrentLayout(
                    background = color[1],
-                   padding = 10
+                   padding = 10,
+                   foreground = color[0],
                    ),
             ],
             32,
@@ -311,11 +315,13 @@ screens = [
                widget.Clock(
                    format='%I:%M %p',
                    background = color[3],
-                   padding = 10
+                   padding = 10,
+                   foreground = color[0],
                    ),
                widget.CurrentLayout(
                    background = color[1],
-                   padding = 10
+                   padding = 10,
+                   foreground = color[0],
                    ),
 
             ],
@@ -351,11 +357,13 @@ screens = [
                widget.Clock(
                    format='%I:%M %p',
                    background = color[3],
-                   padding = 10
+                   padding = 10,
+                   foreground = color[0],
                    ),
                widget.CurrentLayout(
                    background = color[1],
-                   padding = 10
+                   padding = 10,
+                   foreground = color[0],
                    ),
 
             ],
@@ -404,6 +412,7 @@ focus_on_window_activation = "smart"
 @hook.subscribe.startup
 def autostart():
     subprocess.call([home + '/.config/qtile/autostart.sh']),
+    subprocess.call([home + '/.config/qtile/setWallpaper.sh']),
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
