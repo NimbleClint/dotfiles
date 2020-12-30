@@ -146,6 +146,9 @@ keys = [
     # Launch Terminal
     Key([mod], "Return", lazy.spawn(terminal)),
 
+    # Launch File Manager
+    Key([mod], "e", lazy.spawn("pcmanfm")),
+
     # Launch Rofi App Launcher
     # Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
     Key([mod], "space", lazy.spawn([home + '/.config/qtile/rofi-dmenu.sh'])),
@@ -185,7 +188,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 
 layout_theme = { 
-        "border_width": 2,
+        "border_width": 1,
         "border_focus": color[1],
         "border_normal": color[0],
         }

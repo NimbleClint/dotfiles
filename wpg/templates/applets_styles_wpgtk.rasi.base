@@ -1,3 +1,9 @@
+/*
+    This file is managed by WPGTK.
+    Please do not edit the file directly.
+    Instead, edit the WPGTK template.
+*/
+
 * {{
   accent:           {color1};
   background:       {color0}00;
@@ -23,3 +29,7 @@
   color14:	{color14};
   color15:	{color15};
 }}
+
+/*
+    vim:ft=css
+*/

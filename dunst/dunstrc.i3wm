@@ -1,13 +1,7 @@
-##################################
-# This file is managed by WPGTK. #
-# Please edit the template, not  #
-# this file.                     #
-##################################
-
 [colors]
-	background = "{color0}"
-	foreground = "{color15}"
-	accent = "{color1}"
+	background = "#000008"
+	foreground = "#ffffff"
+	accent = "#2296d7"
 
 [global]
     ### Display ###
@@ -15,7 +9,7 @@
     monitor = 0
     follow = none 
 
-    geometry = "540x5-10+10"
+    geometry = "540x5-10+46"
     indicate_hidden = yes
     shrink = yes
     transparency = 0
@@ -25,7 +19,7 @@
     horizontal_padding = 18
     frame_width = 3 
 
-    frame_color = "{color1}"
+    frame_color = "#2296d7"
     separator_color = auto
     sort = yes
     idle_threshold = 120
@@ -74,7 +68,7 @@
     startup_notification = false
     force_xinerama = false
 [frame]
-    color = "{color1}"
+    color = "#2296d7"
 
 [experimental]
     per_monitor_dpi = false

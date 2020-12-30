@@ -9,7 +9,7 @@ Power and Launcher menus are Rofi Applets (link below). Included polybar modules
 ![NimbleClint's i3 Terminals](i3/i3screenshots/adventureTime_i3Polybar_terminals.png)
 ![NimbleClint's i3 Menus](i3/i3screenshots/adventureTime_i3Polybar_blender.png)
 
-### Dependencies
+### Apps Used
 
 Desktop Environment |
 ---- |
@@ -36,6 +36,22 @@ Rofi Menus |
 ---- |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 
+### Installation Notes
+I use WPGTK templates to manage many of my config files. I have put warnings on many of these files to warn against editing files directly, and instead use WPGTK. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
+
+- .config/i3/config.base
+- .config/rofi/applets/styles/wpgtk.rasi
+- .config/rofi/launchers/colorful/colors.rasi
+- .config/polybar/scripts/polybar-kdeconnect.sh
+- .config/polybar/scripts/vpn-module.sh
+- .config/dunst/dunstrc
+
+The following files have versions for i3wm and qTile. To set up the i3 configuration, remove the ".i3wm" from the following files (backup the old config file first):
+
+- .config/rofi/applets/menu/powermenu.sh.i3wm
+- .config/dunst/dunstrc.i3wm
+
+
 ### Wallpaper
 Cudos to artist: [Pixel art by AbyssWolf](https://www.deviantart.com/abysswolf/art/Finn-and-Jake-382050723)  
 I don't know who made the wallpaper [but you can find it here.](https://cdn.wallpapersafari.com/88/29/AJvlRT.jpg)
@@ -48,7 +64,7 @@ Currently my Qtile config works pretty similarly to i3; it uses the same rofi me
 ![NimbleClint's qtile Terminals](qtile/qtileScreenshots/fluidSim_terminals.png)
 ![NimbleClint's qtile Menus](qtile/qtileScreenshots/fluidSim_menus.png)
 
-### Dependencies
+### Apps Used
 
 Desktop Environment |
 ---- |
@@ -68,3 +84,16 @@ Rofi Menus |
 ---- |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 [DT's Rasi files](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/rofi/themes) (Included/modified) |
+
+### Installation Notes
+I use WPGTK templates to manage many of my config files. I have put warnings on many of these files to warn against editing files directly, and instead use WPGTK. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
+
+- .config/rofi/rofi-center.rasi
+- .config/rofi/rofi-dmenu.rasi
+- .config/rofi/applets/styles/wpgtk.rasi
+- .config/dunst/dunstrc
+
+The following files have versions for i3wm and qTile. To set up the qTile configuration, remove the ".qtile" from the following files (backup the old config file first):
+
+- .config/rofi/applets/menu/powermenu.sh.qtile
+- .config/dunst/dunstrc.qtile
