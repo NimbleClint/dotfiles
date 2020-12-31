@@ -134,7 +134,7 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioPause", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
-    Key([], "XF86AudioPause", lazy.spawn("playerctl previous")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
 
     # Print Screen
     Key([], "Print", lazy.spawn("gnome-screenshot -i")),

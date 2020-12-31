@@ -5,7 +5,7 @@
 ##################################
 
 [colors]
-	background = "#000008"
+	background = "#00000800"
 	foreground = "#ffffff"
 	accent = "#2296d7"
 
