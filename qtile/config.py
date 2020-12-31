@@ -149,6 +149,9 @@ keys = [
     # Launch File Manager
     Key([mod], "e", lazy.spawn("pcmanfm")),
 
+    # Launch Internet Browser
+    Key([mod], 'b', lazy.spawn("firefox")),
+
     # Launch Rofi App Launcher
     # Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
     Key([mod], "space", lazy.spawn([home + '/.config/qtile/rofi-dmenu.sh'])),
