@@ -1,8 +1,6 @@
 # NimbleClint's Dotfiles
 
 ## Qtile
-
-### Screenshots
 ![NimbleClint's qtile Desktop](qtile/qtileScreenshots/fluidSim_desktop.png)
 ![NimbleClint's qtile Terminals](qtile/qtileScreenshots/fluidSim_terminals.png)
 ![NimbleClint's qtile Menus](qtile/qtileScreenshots/fluidSim_menus.png)
@@ -46,8 +44,6 @@ The following files have versions for i3wm and qTile. To set up the qTile config
 ~~~~ 
 
 ## i3-Gaps and Polybar
-
-### Screenshots
 ![NimbleClint's i3 Desktop](i3/i3screenshots/adventureTime_i3Polybar_desktop.png)
 ![NimbleClint's i3 Terminals](i3/i3screenshots/adventureTime_i3Polybar_terminals.png)
 ![NimbleClint's i3 Menus](i3/i3screenshots/adventureTime_i3Polybar_blender.png)
