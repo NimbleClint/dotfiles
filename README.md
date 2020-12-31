@@ -1,6 +1,6 @@
 # NimbleClint's Dotfiles
 
-### Qtile
+## Qtile
 
 ### Screenshots
 ![NimbleClint's qtile Desktop](qtile/qtileScreenshots/fluidSim_desktop.png)
@@ -43,7 +43,8 @@ The following files have versions for i3wm and qTile. To set up the qTile config
 ~~~~
 .config/rofi/applets/menu/powermenu.sh.qtile
 .config/dunst/dunstrc.qtile
-~~~~ NimbleClint's Dotfiles
+~~~~ 
+
 ## i3-Gaps and Polybar
 
 ### Screenshots
