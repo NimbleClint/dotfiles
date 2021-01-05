@@ -34,7 +34,6 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 
-from plasma import Plasma
 
 # Load script to read colors from pywal
 import pywal_colors
@@ -154,8 +153,8 @@ keys = [
 
     # Launch Rofi App Launcher
     # Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
-    Key([mod], "space", lazy.spawn([home + '/.config/qtile/rofi-dmenu.sh'])),
-    Key([mod, "control"], "space", lazy.spawn([home + '/.config/qtile/rofi-center.sh'])),
+    Key([mod], "space", lazy.spawn([home + '/.config/qtile/scripts/rofi-dmenu.sh'])),
+    Key([mod, "control"], "space", lazy.spawn([home + '/.config/qtile/scripts/rofi-center.sh'])),
 ]
 
 
@@ -236,9 +235,6 @@ layouts = [
     # layout.Zoomy(
     #     name = "Zoomy",
     #     ),
-    # Plasma(
-    #     name = "Plasma",
-    #     ),
 ]
 
 widget_defaults = dict(
@@ -275,8 +271,15 @@ screens = [
                    linewidth = 0,
                    padding = 10,
                    ),
+               widget.Spacer(),
                widget.WindowName(),
                widget.Spacer(),
+               widget.Volume(
+                    background = color[1],
+                    foreground = color[0],
+                    padding = 10,
+                    emoji = True,
+                   ),
                widget.Clock(
                    format='%Y-%m-%d %a %I:%M %p',
                    background = color[3],
@@ -288,6 +291,18 @@ screens = [
                    padding = 10,
                    foreground = color[0],
                    ),
+              #  widget.GenPollText(
+	      #      update_interval=1,
+	      #      func=lambda: subprocess.check_output(os.path.expanduser("~/.config/qtile/scripts/qtile-kdeconnect/qtile-kdeconnect.sh")).decode("utf-8").strip(),
+              #      mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(os.path.expanduser("~/.config/qtile/scripts/qtile-kdeconnect/qtile-kdeconnect-menu.sh -m"))},
+              #      foreground = color[0],
+              #      background = color[2],
+              #      font = "DejaVu Sans Mono Nerd Font",
+              #      fontsize = 30,
+              #      padding = 10,
+              #      markup = True,
+              #      ),
+
             ],
             32,
         ),
@@ -380,7 +395,7 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+        Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
@@ -417,8 +432,8 @@ focus_on_window_activation = "smart"
 # Autostart
 @hook.subscribe.startup
 def autostart():
-    subprocess.call([home + '/.config/qtile/autostart.sh']),
-    subprocess.call([home + '/.config/qtile/setWallpaper.sh']),
+    subprocess.call([home + '/.config/qtile/scripts/autostart.sh']),
+    subprocess.call([home + '/.config/qtile/scripts/setWallpaper.sh']),
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
