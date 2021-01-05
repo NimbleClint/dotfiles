@@ -41,7 +41,7 @@ Colors are controlled by WPGTK, which uses pywal. When running, Qtile wants to f
 
 If you don't have this, you can generate it by running either pywal or WPGTK for the first time.  
 
-Many of my config files are controlled using WPGTK tempaltes. I have put warnings on many of these files to warn against editing files directly - they should be modified by editing the WPGTK template. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
+Many of my config files are controlled using WPGTK templates. I have put warnings on many of these files to warn against editing files directly - they should be modified by editing the WPGTK template. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
 
 ~~~~
 .config/rofi/rofi-center.rasi
