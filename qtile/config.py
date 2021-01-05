@@ -278,7 +278,6 @@ screens = [
                     background = color[1],
                     foreground = color[0],
                     padding = 10,
-                    emoji = True,
                    ),
                widget.Clock(
                    format='%Y-%m-%d %a %I:%M %p',
