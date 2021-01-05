@@ -1,9 +1,0 @@
-/* colors */
-
-* {{
-  al:  {color0};
-  bg:  {color0};
-  se:  {color8};
-  fg:  {color15};
-  ac:  {color1};
-}}

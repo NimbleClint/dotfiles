@@ -26,8 +26,22 @@ Rofi Menus |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 [DT's Rasi files](https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/rofi/themes) (Included/modified) |
 
+Fonts |
+---- |
+DejaVu Sans |
+Iosevka Nerd Font |
+
+
 ### Installation Notes
-I use WPGTK templates to manage many of my config files. I have put warnings on many of these files to warn against editing files directly, and instead use WPGTK. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
+Colors are controlled by WPGTK, which uses pywal. When running, Qtile wants to find the following file:
+
+~~~~
+~/.cache/wal/colors.json
+~~~~
+
+If you don't have this, you can generate it by running either pywal or WPGTK for the first time.  
+
+Many of my config files are controlled using WPGTK tempaltes. I have put warnings on many of these files to warn against editing files directly - they should be modified by editing the WPGTK template. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
 
 ~~~~
 .config/rofi/rofi-center.rasi
