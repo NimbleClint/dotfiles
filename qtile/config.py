@@ -271,7 +271,6 @@ screens = [
                    linewidth = 0,
                    padding = 10,
                    ),
-               widget.Spacer(),
                widget.WindowName(),
                widget.Spacer(),
                widget.Volume(
