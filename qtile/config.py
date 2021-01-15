@@ -430,7 +430,7 @@ focus_on_window_activation = "smart"
 # Autostart
 @hook.subscribe.startup
 def autostart():
-    subprocess.call([home + '/.config/qtile/scripts/autostart.sh']),
+#    subprocess.call([home + '/.config/qtile/scripts/autostart.sh']),
     subprocess.call([home + '/.config/qtile/scripts/setWallpaper.sh']),
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

@@ -89,6 +89,12 @@ Rofi Menus |
 ---- |
 [Rofi Applets](https://github.com/adi1090x/rofi) (Some included) |
 
+Fonts |
+---- |
+Any Nerd Font
+DejaVu Sans
+Terminal font: Source Code Pro
+
 ### Installation Notes
 I use WPGTK templates to manage many of my config files. I have put warnings on many of these files to warn against editing files directly, and instead use WPGTK. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
 
