@@ -34,7 +34,6 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 
-
 # Load script to read colors from pywal
 import pywal_colors
 color = pywal_colors.colors
