@@ -1,4 +1,38 @@
 # NimbleClint's Dotfiles
+### Installation Notes
+These dotfiles are set up to use GNU stow for installation. To install, first MAKE SURE YOUR EXISTING CONFIG FILES ARE BACKED UP. Once you have done that, make sure GNU Stow is installed on your system, then:
+- Clone this repo somewhere on your drive
+- cd into the cloned repo
+- Enter the command
+
+~~~~
+stow dunst fish i3 kitty picom polybar qtile rofi
+~~~~
+
+Colors are controlled by WPGTK, which uses pywal. When running, Qtile wants to find the following file:
+
+~~~~
+~/.cache/wal/colors.json
+~~~~
+
+If you don't have this, you can generate it by running either pywal or WPGTK for the first time.  
+
+Many of my config files are controlled using WPGTK templates. I have put warnings on many of these files to warn against editing files directly - they should be modified by editing the WPGTK template. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
+
+~~~~
+.config/rofi/rofi-center.rasi
+.config/rofi/rofi-dmenu.rasi
+.config/rofi/applets/styles/wpgtk.rasi
+.config/dunst/dunstrc
+~~~~
+
+The following files have versions for i3wm and qTile. To set up the qTile configuration, remove the ".qtile" from the following files (backup the old config file first):
+
+~~~~
+.config/rofi/applets/menu/powermenu.sh.qtile
+.config/dunst/dunstrc.qtile
+~~~~ 
+
 
 ## Qtile
 ![NimbleClint's qtile Desktop](qtile/qtileScreenshots/fluidSim_desktop.png)
@@ -31,31 +65,6 @@ Fonts |
 DejaVu Sans |
 Iosevka Nerd Font |
 
-
-### Installation Notes
-Colors are controlled by WPGTK, which uses pywal. When running, Qtile wants to find the following file:
-
-~~~~
-~/.cache/wal/colors.json
-~~~~
-
-If you don't have this, you can generate it by running either pywal or WPGTK for the first time.  
-
-Many of my config files are controlled using WPGTK templates. I have put warnings on many of these files to warn against editing files directly - they should be modified by editing the WPGTK template. If you are not using WPGTK, you can ignore these warnings. If you are using WPGTK, set up templates for the following files:
-
-~~~~
-.config/rofi/rofi-center.rasi
-.config/rofi/rofi-dmenu.rasi
-.config/rofi/applets/styles/wpgtk.rasi
-.config/dunst/dunstrc
-~~~~
-
-The following files have versions for i3wm and qTile. To set up the qTile configuration, remove the ".qtile" from the following files (backup the old config file first):
-
-~~~~
-.config/rofi/applets/menu/powermenu.sh.qtile
-.config/dunst/dunstrc.qtile
-~~~~ 
 
 ## i3-Gaps and Polybar
 ![NimbleClint's i3 Desktop](i3/i3screenshots/adventureTime_i3Polybar_desktop.png)
