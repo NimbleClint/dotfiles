@@ -10,21 +10,21 @@
   background-light: #00000800;
   foreground:       #ffffff;
   on:               #2296d7;
-  off:              #c92c78;
+  off:              #eae248;
 
   color0:	#000008;
   color1:	#2296d7;
   color2:	#60d338;
-  color3:	#c92c78;
-  color4:	#eae248;
+  color3:	#eae248;
+  color4:	#c92c78;
   color5:	#dd1243;
   color6:	#6b6ce3;
   color7:	#ffffff;
   color8:	#454567;
   color9:	#2296d7;
   color10:	#60d338;
-  color11:	#c92c78;
-  color12:	#eae248;
+  color11:	#eae248;
+  color12:	#c92c78;
   color13:	#dd1243;
   color14:	#6b6ce3;
   color15:	#ffffff;

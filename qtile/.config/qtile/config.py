@@ -279,7 +279,7 @@ screens = [
                    ),
                widget.Clock(
                    format='%Y-%m-%d %a %I:%M %p',
-                   background = color[3],
+                   background = color[4],
                    padding = 10,
                    foreground = color[0],
                    ),
@@ -332,7 +332,7 @@ screens = [
                widget.Spacer(),
                widget.Clock(
                    format='%I:%M %p',
-                   background = color[3],
+                   background = color[4],
                    padding = 10,
                    foreground = color[0],
                    ),
@@ -374,7 +374,7 @@ screens = [
                widget.Spacer(),
                widget.Clock(
                    format='%I:%M %p',
-                   background = color[3],
+                   background = color[4],
                    padding = 10,
                    foreground = color[0],
                    ),

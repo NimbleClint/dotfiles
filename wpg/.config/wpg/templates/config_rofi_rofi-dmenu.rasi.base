@@ -21,7 +21,7 @@
     prompt-background:          {color1};
     prompt-foreground:          {color0};
     prompt-padding:             2px;
-    selected-normal-background: {color3};
+    selected-normal-background: {color4};
     selected-normal-foreground: {color15};
 }}
 #window {{
