@@ -16,8 +16,8 @@
     border-color:               #454567;
     text-color:                 #ffffff;
     height:                     32px;
-    font:                       "DejaVu Sans 11";
-    prompt-font:                "DejaVu Sans 11";
+    font:                       "Ubuntu Mono 11";
+    prompt-font:                "Ubuntu Mono 11";
     prompt-background:          #2296d7;
     prompt-foreground:          #000008;
     prompt-padding:             2px;

@@ -5,9 +5,9 @@
 ##################################
 
 [colors]
-	background = "#00000800"
-	foreground = "#ffffff"
-	accent = "#2296d7"
+	background = "{color0}{opacity}"
+	foreground = "{color15}"
+	accent = "{color1}"
 
 [global]
     ### Display ###
@@ -25,7 +25,7 @@
     horizontal_padding = 18
     frame_width = 3 
 
-    frame_color = "#2296d7"
+    frame_color = "{color1}"
     separator_color = auto
     sort = yes
     idle_threshold = 120
