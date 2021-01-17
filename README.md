@@ -15,7 +15,7 @@ These dotfiles are set up to use GNU stow for installation. To install, first **
 stow dunst picom qtile rofi
 ~~~~
 
-#### Colors and WPGTK
+### Colors and WPGTK
 Colors are controlled by WPGTK, which uses pywal. When running, Qtile wants to find the following file:
 
 ~~~~
