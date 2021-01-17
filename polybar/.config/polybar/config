@@ -98,8 +98,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = DejaVuSansMono Nerd Font Mono:style=Oblique:size=20:antialias=true;4.5
 font-3 = DejaVuSansMono Nerd Font Mono:style=Book:size=16:antialias=true;3
 font-4 = "Product Sans Light:style=Regular:size=10"
-font-5 = "Weather Icons:size=20;1"
-font-6 = "Font Awesome 5 Brans Regular:style=Regular:size=20;3"
+# font-5 = "Weather Icons:size=20;1"
+font-5 = "Font Awesome 5 Brans Regular:style=Regular:size=20;3"
 
 modules-left = i3 xwindow
 modules-center = 
