@@ -1,5 +1,4 @@
 # NimbleClint's Dotfiles
-## Qtile
 ![NimbleClint's qtile Desktop](screenshots/qtileScreenshots/fluidSim_desktop.png)
 ![NimbleClint's qtile Terminals](screenshots/qtileScreenshots/fluidSim_terminals.png)
 ![NimbleClint's qtile Menus](screenshots/qtileScreenshots/fluidSim_menus.png)
