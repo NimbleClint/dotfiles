@@ -108,9 +108,12 @@ keys = [
     # Switch window focus to other pane(s) of stack
     Key([mod], "n", lazy.layout.next()),
 
-    # Swap panes of split stack
-    Key([mod, "shift"], "space", lazy.layout.rotate()),
+    # Toggle Floating
+    Key([mod], "t", lazy.window.toggle_floating()),
 
+    # Swap panes of split stack
+    Key([mod], "r", lazy.layout.rotate()),
+ 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
 
