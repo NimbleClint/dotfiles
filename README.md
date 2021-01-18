@@ -57,7 +57,8 @@ Fonts |
 ---- |
 DejaVu Sans |
 Iosevka Nerd Font |
-Terminal Font: Source Code Pro |
+Terminal Font: Source Code Pro (In screenshots) |
+Terminal Font: Fantasque Sans Mono (Currently in config) |
 
 ## Other Configurations
 If you're an i3 user, you can check out [my i3 configuration here.](https://github.com/NimbleClint/Adventure-Time-i3) However, please not that it is no longer being updated.
