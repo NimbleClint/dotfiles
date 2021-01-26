@@ -1,0 +1,15 @@
+[Bookmarks]
+/media/homeDrive/Resource Library/Textures/
+/home/andrew/Projects/3D Projects/
+/media/homeDrive/Resource Library/Textures/hdrMaps/
+[Recent]
+/home/andrew/Projects/3D Projects/Sketches/Drum/Render/
+/home/andrew/Projects/3D Projects/Sketches/
+/media/homeDrive/Resource Library/Textures/Wood/woodFloor004-1k/
+/media/homeDrive/Resource Library/Textures/Wood/wood23_1k/
+/media/homeDrive/Resource Library/Textures/hdrMaps/
+/home/andrew/Downloads/
+/home/andrew/Projects/3D Projects/
+/media/homeDrive/Resource Library/Textures/hdrMaps/hdr_smallApartment/
+/home/andrew/Projects/3D Projects/1 Hour Blends/
+/media/homeDrive/Resource Library/Textures/Dirt and Ground/Ground 03 2k/
