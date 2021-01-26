@@ -5,3 +5,4 @@ polkit-dumb-agent &
 picom --experimental-backends &
 dunst &
 numlockx on &
+emacs --daemon

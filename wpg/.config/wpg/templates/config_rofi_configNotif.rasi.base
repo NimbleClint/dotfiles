@@ -1,0 +1,171 @@
+configuration {{
+	display-drun:    " Apps";
+	display-window:  "缾 Windows";
+	show-icons:true;
+	font: "DejaVu Sans 11";
+}}
+
+* {{
+	background-color:            {color0}{opacity};
+    bg:                          {color8};
+	text-color:                  {color15};
+	selbg:                       {color1};
+	actbg:                       {color4};
+	urgbg:                       {color5};
+	winbg:                       {color2};
+
+	selected-normal-foreground:  @text-color;
+	normal-foreground:           @text-color;
+	selected-normal-background:  @actbg;
+	normal-background:           @background-color;
+
+	selected-urgent-foreground:  @text-color;
+	urgent-foreground:           @text-color;
+	selected-urgent-background:  @actbg;
+	urgent-background:           @background-color;
+    urgent-foreground:           @urgbg;
+
+	selected-active-foreground:  @text-color;
+	active-foreground:           @text-color;
+	selected-active-background:  @actbg;
+	active-background:           @background-color;
+
+	line-margin:                 2;
+	line-padding:                2;
+	separator-style:             "none";
+	hide-scrollbar:              "true";
+	margin:                      0;
+	padding:                     10;
+}}
+
+window {{
+	location:	 east;
+	anchor:		 east;
+	height:		 95%;
+    y-offset:    -16px;
+    x-offset:    -10px;
+	width:		 385px;
+	orientation: horizontal;
+	children:	 [mainbox];
+    border-radius: 0px;
+    border: 2px solid;
+    border-color: {color1};
+}}
+
+mainbox {{
+	spacing:  0.8em;
+    orientation: vertical;
+	children: [ inputbar, listview ];
+}}
+
+button {{ padding: 5px 2px; }}
+
+button selected {{
+	background-color: @active-background;
+	text-color:       @background-color;
+}}
+
+inputbar {{
+	padding: 5px;
+	spacing: 5px;
+}}
+
+listview {{
+	spacing: 0.5em;
+	dynamic: true;
+	cycle:   false;
+}}
+
+element {{
+        padding: 10px;
+}}
+
+prompt {{
+       padding:     5px 25px 15px 25px;
+       font:        "DejaVu Sans 22";
+}}
+
+entry {{
+	expand:         true;
+	text-color:     @normal-foreground;
+	vertical-align: 0;
+	padding:        5px 0px 0px 20px;
+    enabled:        false;
+}}
+
+element normal.normal {{
+	background-color: @bg{opacity};
+	text-color:       @normal-foreground;
+	border:           2px solid;
+	border-color:	    @selbg;
+
+}}
+
+element normal.urgent {{
+	background-color: @bg{opacity};
+	text-color:       @urgent-foreground;
+  border:           2px solid;
+	border-color:	    @urgbg;
+
+}}
+
+
+element normal.active {{
+	background-color: @bg{opacity};
+	text-color:       @active-foreground;
+  border:           2px solid;
+	border-color:	    @selbg;
+}}
+
+element selected.normal {{
+	background-color: @selected-normal-background{opacity};
+	text-color:       @selected-normal-foreground;
+  border:           2px solid;
+	border-color:	    @winbg;
+}}
+
+element selected.urgent {{
+	background-color: @selected-urgent-background{opacity};
+	text-color:       @selected-urgent-foreground;
+  border:           2px solid;
+	border-color:	    @winbg;
+}}
+
+element selected.active {{
+	background-color: @selected-active-background{opacity};
+	text-color:       @selected-active-foreground;
+  border:           2px solid;
+	border-color:	    @winbg;
+}}
+
+element alternate.normal {{
+	background-color: @bg{opacity};
+	text-color:       @normal-foreground;
+  border:           2px solid;
+	border-color:	    @selbg;
+}}
+
+element alternate.urgent {{
+	background-color: @bg{opacity};
+	text-color:       @urgent-foreground;
+  border:           2px solid;
+	border-color:	    @urgbg;
+}}
+
+element alternate.active {{
+	background-color: @bg{opacity};
+	text-color:       @active-foreground;
+  border:           2px solid;
+	border-color:	    @selbg;
+}}
+element-icon {{
+	size: 7ch;
+}}
+element.selected {{
+	border:           2px solid;
+	border-color:	    @winbg;
+}}
+
+/*
+  vim:ft=css
+*/

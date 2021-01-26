@@ -148,7 +148,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal)),
 
     # Launch File Manager
-    Key([mod], "e", lazy.spawn("pcmanfm")),
+    Key([mod], "e", lazy.spawn("thunar")),
 
     # Launch Internet Browser
     Key([mod], 'b', lazy.spawn("firefox")),
@@ -157,6 +157,10 @@ keys = [
     # Key([mod], "space", lazy.spawn([home + '/.config/rofi/launchers/colorful/launcher.sh'])),
     Key([mod], "space", lazy.spawn([home + '/.config/qtile/scripts/rofi-dmenu.sh'])),
     Key([mod, "control"], "space", lazy.spawn([home + '/.config/qtile/scripts/rofi-center.sh'])),
+
+    # Rofi Notification Center
+    Key([mod], 'd', lazy.spawn([home + '/.config/dunst/scripts/rofi_notif_center.sh'])),
+
 ]
 
 

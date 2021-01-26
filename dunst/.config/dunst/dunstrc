@@ -98,5 +98,7 @@
     background = colors.background
     foreground = colors.foreground
     timeout = 0
+[log_notifs]
+    script = ~/.config/dunst/scripts/dunst_logger.sh
 
  vim: ft=cfg
