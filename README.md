@@ -60,5 +60,12 @@ Iosevka Nerd Font |
 Terminal Font: Source Code Pro (In screenshots) |
 Terminal Font: Fantasque Sans Mono (Currently in config) |
 
+## Todo List
+* Configure emacs appearance/bindings to match Vim
+* Set up either KDEConnect or Universal Remote
+* Make Grub sexy
+* Theme spotify/discord
+* Make Firefox sexy
+
 ## Other Configurations
 If you're an i3 user, you can check out [my i3 configuration here.](https://github.com/NimbleClint/Adventure-Time-i3) However, please not that it is no longer being updated.
