@@ -66,6 +66,7 @@ Terminal Font: Fantasque Sans Mono (Currently in config) |
 * Make Grub sexy
 * Theme spotify/discord
 * Make Firefox sexy
+* Fix quit menu transparency issues
 
 ## Other Configurations
 If you're an i3 user, you can check out [my i3 configuration here.](https://github.com/NimbleClint/Adventure-Time-i3) However, please not that it is no longer being updated.
